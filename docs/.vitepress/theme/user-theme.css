@@ -3,7 +3,7 @@
 
 /* 浅色模式使用的变量 */
 html[theme] {
-  --vp-c-user-1: #ff5900;
+  --vp-c-user-1: #00b2ff;
   --vp-c-user-2:blue;
   --vp-c-user-3:green;
   --vp-c-user-soft:rgba(255,0,0,.5);

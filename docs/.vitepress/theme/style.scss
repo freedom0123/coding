@@ -11,3 +11,12 @@
     background-size: cover;
   }
 }
+
+.vp-doc h2 {
+  margin-top: 5px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+  letter-spacing: -0.02em;
+  line-height: 32px;
+  font-size: 24px
+}
