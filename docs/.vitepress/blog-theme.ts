@@ -18,7 +18,8 @@ import { getThemeConfig } from '@sugarat/theme/node'
 // 所有配置项，详见文档: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({
   recommend: {
-    style: 'sidebar'
+    style: 'sidebar',
+    sort: 'filename'
   },
   // 开启RSS支持
   // RSS,
