@@ -30,7 +30,7 @@ export default defineConfig({
   themeConfig: {
     // 展示 2,3 级标题在目录中
     outline: {
-      level: [1, 6],
+      level: [2, 6],
       label: '目录'
     },
     // 默认文案修改
