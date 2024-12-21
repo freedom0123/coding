@@ -20,7 +20,7 @@ export default defineConfig({
   lang: 'zh-cn',
   title: '城南花已开',
   description: '粥里有勺糖的博客主题，基于 vitepress 实现',
-  lastUpdated: true,
+  lastUpdated: false,
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
@@ -45,7 +45,13 @@ export default defineConfig({
       {
         text: '开发框架',
         items: [
-          { text: 'Dubbo', link: '/Framework/Dubbo/index'}
+          { text: 'Dubbo', link: '/Framework/Dubbo/0-index'}
+        ]
+      },
+      {
+        text: '分布式系列',
+        items: [
+          { text: 'RPC', link: '/05.RPC/RPC系列/01.概述'}
         ]
       },
       {
