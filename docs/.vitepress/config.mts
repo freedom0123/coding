@@ -45,19 +45,19 @@ export default defineConfig({
       {
         text: '开发框架',
         items: [
-          { text: 'Dubbo', link: '/Framework/Dubbo/0-index'}
+          { text: 'Dubbo', link: '/01.Framework/Dubbo/1-概述'}
         ]
       },
       {
         text: '分布式系列',
         items: [
-          { text: 'RPC', link: '/05.RPC/RPC系列/01.概述'}
+          { text: 'RPC', link: '/03.RPC/RPC系列/01.概述'}
         ]
       },
       {
         text: 'Java',
         items: [
-          { text: 'JVM', link: '/JVM/index'}
+          { text: 'JVM', link: '/02.JVM/index'}
         ]
       }
     ],
