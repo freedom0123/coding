@@ -59,6 +59,10 @@ export default defineConfig({
         items: [
           { text: 'JVM', link: '/02.JVM/index'}
         ]
+      },
+      {
+        text: '设计模式',
+        link: '/05.设计模式/index'
       }
     ],
     socialLinks: [
