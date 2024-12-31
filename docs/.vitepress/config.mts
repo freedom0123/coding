@@ -61,6 +61,13 @@ export default defineConfig({
         ]
       },
       {
+        text: '数据库',
+        items: [
+          { text: 'Redis', link: '/04.数据库/Redis/3-架构演进'},
+          { text: 'MySQL', link: '/04.数据库/MySql/index'}
+        ]
+      },
+      {
         text: '设计模式',
         link: '/05.设计模式/index'
       }
