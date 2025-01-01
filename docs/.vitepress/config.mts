@@ -57,7 +57,8 @@ export default defineConfig({
       {
         text: 'Java',
         items: [
-          { text: 'JVM', link: '/02.JVM/index'}
+          { text: 'JVM', link: '/02.JVM/index'},
+          { text: 'JUC', link: '/06.JUC/CompletableFuture'},
         ]
       },
       {
