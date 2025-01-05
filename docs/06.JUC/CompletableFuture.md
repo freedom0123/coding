@@ -150,7 +150,7 @@ executorService.shutdownNow();
 
 ### 2.2 异步回调
 
-![图片](asserts/640)
+![图片](asserts/640.jpg)
 
 #### 2.2.1 thenRun/thenRunAsync
 
