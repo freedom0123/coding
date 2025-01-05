@@ -27,6 +27,6 @@ html[theme],html[theme].dark {
 :root {
   --vp-layout-max-width: 1550px;
 }
-.VPDoc.has-aside .content-container[data-v-10119189] {
+.VPDoc.has-aside .content-container {
   max-width: 850px;
 }
