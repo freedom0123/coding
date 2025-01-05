@@ -3,8 +3,8 @@
 
 /* 浅色模式使用的变量 */
 html[theme] {
-  --vp-c-user-1: #00b2ff;
-  --vp-c-user-2:blue;
+  --vp-c-user-1: #ff5900;
+  --vp-c-user-2: #ff00dd;
   --vp-c-user-3:green;
   --vp-c-user-soft:rgba(255,0,0,.5);
 }
@@ -23,4 +23,10 @@ html[theme],html[theme].dark {
   --vp-c-brand-2: var(--vp-c-user-2);
   --vp-c-brand-3: var(--vp-c-user-3);
   --vp-c-brand-soft: var(--vp-c-user-soft);
+}
+:root {
+  --vp-layout-max-width: 1550px;
+}
+.VPDoc.has-aside .content-container[data-v-10119189] {
+  max-width: 850px;
 }

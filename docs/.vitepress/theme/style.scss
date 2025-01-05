@@ -28,9 +28,16 @@
   margin: 5px 0;
 }
 body {
-  font-size: 14px;
+  font-size: 15px;
 }
 .vp-doc li {
   margin-left: 10px;
   padding-left: 5px;
+}
+.vp-doc [class*='plugin-tabs'] pre code {
+  padding: 0 0;
+  color: #3dd68c;
+}
+.VPSidebar[data-v-6750ea26] {
+
 }

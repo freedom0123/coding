@@ -149,3 +149,75 @@ executorService.shutdownNow();
 ![image-20250101233857598](asserts/image-20250101233857598.png)
 
 ### 2.2 异步回调
+
+![图片](asserts/640)
+
+#### 2.2.1 thenRun/thenRunAsync
+
+作用：执行完成第一个任务之后，然后再开始第二个任务，两个任务直接没有参数的参数
+
+```java
+public CompletableFuture<Void> thenRun(Runnable action) {
+    return uniRunStage(null, action);
+}
+
+public CompletableFuture<Void> thenRunAsync(Runnable action) {
+    return uniRunStage(asyncPool, action);
+}
+```
+
+对应的示例如下：
+
+::: code-group
+
+```java [thenRun]
+CompletableFuture.supplyAsync(() -> {
+    log.info("1.1 execute");
+    return 1;
+}).thenRun(() -> {
+    log.info("1.2 execute");
+});
+```
+
+```java [thenRunAsync]
+CompletableFuture.supplyAsync(() -> {
+    log.info("2.1 execute");
+    return 1;
+}).thenRunAsync(() -> {
+    log.info("2.2 execute");
+});
+```
+
+:::
+
+那么这两个方法，有什么区别吗？
+
+```java
+public CompletableFuture<Void> thenRun(Runnable action) {
+    return uniRunStage(null, action);
+}
+
+public CompletableFuture<Void> thenRunAsync(Runnable action) {
+    return uniRunStage(asyncPool, action);
+}
+```
+
+#### 2.2.2 thenAccept/thenAcceptAync
+
+第一个 任务执行完成之后，会调用第二个任务，并且将第一个任务的返回结果作为入参，返回给第二个任务
+
+```java
+public CompletableFuture<Void> thenAccept(Consumer<? super T> action) {
+    return uniAcceptStage(null, action);
+}
+
+public CompletableFuture<Void> thenAcceptAsync(Consumer<? super T> action) {
+    return uniAcceptStage(asyncPool, action);
+}
+
+public CompletableFuture<Void> thenAcceptAsync(Consumer<? super T> action,
+                                               Executor executor) {
+    return uniAcceptStage(screenExecutor(executor), action);
+}
+```
+

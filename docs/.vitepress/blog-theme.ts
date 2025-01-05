@@ -9,6 +9,8 @@ const blogTheme = getThemeConfig({
     sort: 'filename',
     title: '目录'
   },
+  tabs: true,
+  mermaid: true,
   article: {
     hiddenCover: true
   },

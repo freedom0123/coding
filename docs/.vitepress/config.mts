@@ -45,7 +45,8 @@ export default defineConfig({
       {
         text: '开发框架',
         items: [
-          { text: 'Dubbo', link: '/01.Framework/Dubbo/1-概述'}
+          { text: 'Dubbo', link: '/01.Framework/Dubbo/1-概述'},
+          { text: 'Spring', link: '/01.Framework/Spring/'}
         ]
       },
       {
