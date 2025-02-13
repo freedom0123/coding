@@ -1,0 +1,143 @@
+<mxfile host="Electron" modified="2025-02-13T16:11:01.167Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="NTTvanOGTD92yP5SUoIv" version="24.4.13" type="device">
+  <diagram name="HashMap添加元素" id="cSwsWQnkC_tpD4kgMsR-">
+    <mxGraphModel dx="1050" dy="629" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-36" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="970" y="585" width="360" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-1" target="nNdmjcXwLaYKu7FDNUwN-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-1" value="&lt;p style=&quot;line-height: 130%;&quot;&gt;通过 key 来计算 hash 值，也就是当前这个键值对要存放为数组的那一个位置上&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-2" target="nNdmjcXwLaYKu7FDNUwN-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-2" value="&lt;p style=&quot;line-height: 130%;&quot;&gt;如果说 table 没有进行初始化或者容量的 0 的时候，先进行扩容&lt;/p&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-4" target="nNdmjcXwLaYKu7FDNUwN-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-4" value="&lt;p style=&quot;line-height: 130%;&quot;&gt;通过 hash &amp;amp; （n - 1 ）来决定，要放在数组的那一个位置之上&lt;/p&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-6" target="nNdmjcXwLaYKu7FDNUwN-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-10" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nNdmjcXwLaYKu7FDNUwN-9">
+          <mxGeometry x="-0.0044" y="3" relative="1" as="geometry">
+            <mxPoint x="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-6" target="nNdmjcXwLaYKu7FDNUwN-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-6" value="如果当前位置没有元素插入" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="400" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-8" target="nNdmjcXwLaYKu7FDNUwN-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-8" value="直接插入" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-11" target="nNdmjcXwLaYKu7FDNUwN-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="720" />
+              <mxPoint x="160" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-11" value="直接覆盖" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-13" target="nNdmjcXwLaYKu7FDNUwN-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-15" value="一致" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nNdmjcXwLaYKu7FDNUwN-14">
+          <mxGeometry x="-0.4733" y="1" relative="1" as="geometry">
+            <mxPoint x="19" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-13" target="nNdmjcXwLaYKu7FDNUwN-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-21" value="不一致" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nNdmjcXwLaYKu7FDNUwN-17">
+          <mxGeometry x="-0.024" y="-1" relative="1" as="geometry">
+            <mxPoint y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-13" value="判断一下 key 是不是一致的" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="530" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-18" target="nNdmjcXwLaYKu7FDNUwN-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-18" target="nNdmjcXwLaYKu7FDNUwN-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-18" value="如果是当前节点是红黑树节点" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="525" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-19" target="nNdmjcXwLaYKu7FDNUwN-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="625" y="720" />
+              <mxPoint x="160" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-19" value="红黑树插入" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="565" y="660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-26" target="nNdmjcXwLaYKu7FDNUwN-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-26" target="nNdmjcXwLaYKu7FDNUwN-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-26" value="遍历到链表尾部，如果此时链表的长度是大于等于8 并且表中存储的元素大于64" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="990" y="592.5" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-27" value="树化" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="717.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-29" value="扩容" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="717.5" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-31" target="nNdmjcXwLaYKu7FDNUwN-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-31" target="nNdmjcXwLaYKu7FDNUwN-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="720" />
+              <mxPoint x="160" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-31" value="遍历链表，进行插入尾插" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="805" y="537.5" width="150" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-38" target="nNdmjcXwLaYKu7FDNUwN-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-38" value="判断一下是否超过阈值" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="820" width="130" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-43" value="扩容" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="838.75" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

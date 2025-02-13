@@ -1,0 +1,54 @@
+<mxfile host="Electron" modified="2025-02-13T15:51:19.404Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="Jwjk_NolYWZRNmeE4_fb" version="24.4.13" type="device">
+  <diagram name="第 1 页" id="cSwsWQnkC_tpD4kgMsR-">
+    <mxGraphModel dx="1050" dy="629" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-1" target="nNdmjcXwLaYKu7FDNUwN-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-1" value="&lt;p style=&quot;line-height: 130%;&quot;&gt;通过 key 来计算 hash 值，也就是当前这个键值对要存放为数组的那一个位置上&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-2" target="nNdmjcXwLaYKu7FDNUwN-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-2" value="&lt;p style=&quot;line-height: 130%;&quot;&gt;如果说 table 没有进行初始化或者容量的 0 的时候，先进行扩容&lt;/p&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-4" target="nNdmjcXwLaYKu7FDNUwN-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-4" value="&lt;p style=&quot;line-height: 130%;&quot;&gt;通过 hash &amp;amp; （n - 1 ）来决定，要放在数组的那一个位置之上&lt;/p&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-6" target="nNdmjcXwLaYKu7FDNUwN-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-10" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nNdmjcXwLaYKu7FDNUwN-9">
+          <mxGeometry x="-0.0044" y="3" relative="1" as="geometry">
+            <mxPoint x="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-6" target="nNdmjcXwLaYKu7FDNUwN-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-6" value="如果当前位置没有元素插入" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="75" y="400" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-8" value="直接插入" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="540" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-11" value="直接覆盖" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="640" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nNdmjcXwLaYKu7FDNUwN-13" target="nNdmjcXwLaYKu7FDNUwN-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nNdmjcXwLaYKu7FDNUwN-13" value="判断一下 key 是不是一致的" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="540" width="140" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
