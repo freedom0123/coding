@@ -3,10 +3,14 @@
 
 /* 浅色模式使用的变量 */
 html[theme] {
-  --vp-c-user-1: #ff5900;
-  --vp-c-user-2: #ff00dd;
+  --vp-c-user-1: #00b2ff;
+
+
+
+
+  --vp-c-user-2: #a100ff;
   --vp-c-user-3:green;
-  --vp-c-user-soft:rgba(255,0,0,.5);
+  --vp-c-user-soft: rgba(123, 0, 255, 0.16);
 }
 
 /* 深色模式使用的变量 */
@@ -29,4 +33,9 @@ html[theme],html[theme].dark {
 }
 .VPDoc.has-aside .content-container {
   max-width: 850px;
+}
+.el-image-viewer__img {
+  transform: scale(1) rotate(0deg) translate(0px, 0px);
+  max-height: 100%;
+  max-width: 90% !important;
 }
