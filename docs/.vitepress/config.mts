@@ -81,6 +81,14 @@ export default defineConfig({
           ]
         }
       ],
+      '/02.JVM': [
+        {
+          text: '目录',
+          items: [
+            { text: '问题排查', link: '/02.JVM/问题分析' }
+          ]
+        }
+      ],
       '/04.数据库/MySQL/': [
         {
           text: '目录',
@@ -107,14 +115,6 @@ export default defineConfig({
           items: [
             { text: '并发编程基础', link: '/06.JUC/1-并发编程基础' },
             { text: 'ThreadLocal', link: '/06.JUC/2-ThreadLocal' },
-          ]
-        }
-      ],
-      '/02.JVM': [
-        {
-          text: '目录',
-          items: [
-            { text: '问题排查', link: '/02.JVM/问题分析' }
           ]
         }
       ],

@@ -1,3 +1,11 @@
+---
+title: List
+description: 介绍 List 的基本性质及线程安全的 List
+date: 
+tag:
+- 集合
+---
+
 # List 集合
 
 ## 一、常见的方法

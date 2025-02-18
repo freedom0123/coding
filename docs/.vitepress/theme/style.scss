@@ -24,8 +24,21 @@
   text-align: center;
 }
 .vp-doc p {
-  line-height: 30px;
+  line-height: 40px;
   margin: 5px 0;
+}
+.vp-doc .custom-block p {
+  margin: 8px 0;
+  line-height: 40px;
+}
+.vp-doc ul, .vp-doc ol {
+  padding-left: 1.25rem;
+  margin: 8px 0;
+}
+.vp-doc li {
+  margin-left: 10px;
+  padding-left: 5px;
+  line-height: 40px;
 }
 body {
   font-size: 15px;
