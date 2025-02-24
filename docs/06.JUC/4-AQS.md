@@ -2,11 +2,7 @@
 
 ## 一、基本信息
 
-`AbstractQueuedSynchronizer`,  抽象的队列式的同步器，内部定义了很多锁相关的方法。在内部中维护了一个`**volatile int state**`**来代表共享资源是否被占用的标志位**，并用一个`FIFO`线程等待队列。
-
-**<font style="color:#2F54EB;">同步器的主要使用方式是继承</font>**<font style="color:black;">，子类通过继承同步器并实现它的抽象方法来管理同步状态。</font>
-
-**<font style="color:#2F54EB;">类推荐被定义为自定义同步组件的静态内部类</font>**<font style="color:black;">，同步器自身没有实现任何同步接口，它仅仅是定义了若干同步状态获取和释放的方法来供自定义同步组件使用，</font>**<font style="color:#2F54EB;">同步器既可以支持独占式地获取同步状态，也可以支持共享式地获取同步状态。</font>**同步器的设置是基于模板方法模式。
+`AbstractQueuedSynchronizer`,  抽象的队列式的同步器，内部定义了很多锁相关的方法。
 
 ## 二、内部结构
 ### 2.1 state
@@ -145,7 +141,7 @@ final boolean acquireQueued(final Node node, int arg) {
                 failed = false;
                 return interrupted;
             }
-            // 如果说获取锁失败了
+            // 如果说获取锁失败了，需要判断当前线程是否有必要挂起
             if (shouldParkAfterFailedAcquire(p, node) && parkAndCheckInterrupt())
                 interrupted = true;
         }
