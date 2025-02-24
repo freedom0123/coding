@@ -56,6 +56,16 @@ export default defineConfig({
           { text: 'JVM', link: '/02.JVM/问题分析'},
           { text: '集合', link: '/07.集合/List'}
         ]
+      },
+      {
+        text: '分布式系列',
+        items: [
+          { text: '唯一ID', link: '/08.分布式系列/1-唯一ID'}
+        ]
+      },
+      {
+        text: '日常开发',
+        link: '/999.日常开发/1-Maven'
       }
     ],
     sidebar: {
@@ -124,6 +134,23 @@ export default defineConfig({
           items: [
             { text: 'List', link: '/07.集合/List' },
             { text: 'Map', link: '/07.集合/Map' }
+          ]
+        }
+      ],
+      '/08.分布式系列': [
+        {
+          text: '目录',
+          items: [
+            { text: '唯一ID', link: '/08.分布式系列/1-唯一ID' }
+          ]
+        }
+      ],
+      '/999.日常开发': [
+        {
+          text: '目录',
+          items: [
+            { text: '唯一ID', link: '/999.日常开发/1-Maven' },
+            { text: '时间传参',link: '/999.日常开发/2-时间传参' }
           ]
         }
       ],
