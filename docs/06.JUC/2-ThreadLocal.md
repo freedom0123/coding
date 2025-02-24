@@ -1,3 +1,12 @@
+---
+title: ThreadLocal
+description: 了解 ThreadLocal 的基本概念和原理
+date: false
+lastUpdated: false
+tag:
+- JUC
+---
+
 # ThreadLocal
 
 ## 一、概述
