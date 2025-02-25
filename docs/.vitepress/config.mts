@@ -153,7 +153,7 @@ export default defineConfig({
         {
           text: '目录',
           items: [
-            { text: '唯一ID', link: '/999.日常开发/1-Maven' },
+            { text: 'Maven', link: '/999.日常开发/1-Maven' },
             { text: '时间传参',link: '/999.日常开发/2-时间传参' }
           ]
         }
