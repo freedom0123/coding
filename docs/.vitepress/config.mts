@@ -36,25 +36,27 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: '基础',
+        items: [
+          { text: 'JUC', link: '/06.JUC/1-并发编程基础'},
+          { text: 'JVM', link: '/02.JVM/问题分析'},
+          { text: '集合', link: '/07.集合/List'},
+          { text: '设计模式', link: '/05.设计模式/状态模式'},
+        ]
+      },
+      {
         text: '开发框架',
         items: [
           { text: 'Dubbo', link: '/01.Framework/Dubbo/1-概述'},
           { text: 'Spring', link: '/01.Framework/Spring/11-事务源码分析'},
+          { text: 'SpringCloud', link: '/01.Framework/SpringCloud/Sentinel/Sentinel'},
         ]
       },
       {
         text: '数据库',
         items: [
-          { text: 'MySQL', link: '/04.数据库/MySQL/01-InnoDB'},
+          { text: 'MySQL', link: '/04.数据库/MySQL/02-索引'},
           { text: 'Redis', link: '/04.数据库/Redis/3-架构演进'}
-        ]
-      },
-      {
-        text: 'Java 基础',
-        items: [
-          { text: 'JUC', link: '/06.JUC/1-并发编程基础'},
-          { text: 'JVM', link: '/02.JVM/问题分析'},
-          { text: '集合', link: '/07.集合/List'}
         ]
       },
       {
@@ -91,6 +93,19 @@ export default defineConfig({
           ]
         }
       ],
+      '/01.Framework/SpringCloud/': [
+        {
+          text: '目录',
+          items: [
+            {
+              text: 'Sentinel',
+              items: [
+                { text: '简介', link: '/01.Framework/SpringCloud/Sentinel/Sentinel' }
+              ]
+            }
+          ]
+        }
+      ],
       '/02.JVM': [
         {
           text: '目录',
@@ -103,7 +118,6 @@ export default defineConfig({
         {
           text: '目录',
           items: [
-            { text: 'InnoDB', link: '/04.数据库/MySQL/01-InnoDB' },
             { text: '索引', link: '/04.数据库/MySQL/02-索引' },
             { text: '日志', link: '/04.数据库/MySQL/03-日志' },
             { text: '事务', link: '/04.数据库/MySQL/04-事务' },
@@ -116,6 +130,14 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: '架构演进', link: '/04.数据库/Redis/3-架构演进' }
+          ]
+        }
+      ],
+      '/05.设计模式/': [
+        {
+          text: '目录',
+          items: [
+            { text: '状态设计模式', link: '/05.设计模式/状态模式' }
           ]
         }
       ],
