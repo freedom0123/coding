@@ -11,13 +11,13 @@ tag: SpringCloud
 
 Sentinel 是 Alibaba 开源的一款微服务流量控制组件
 
-我们通过 https://github.com/alibaba/Sentinel/releases下载对应的 Jar 包，我这里下载的版本是 1.8.8，下载完成之后，可以通过如下方式启动：
+我们通过 [GitHub](https://github.com/alibaba/Sentinel/releases) 下载对应的 Jar 包，我这里下载的版本是 1.8.8，下载完成之后，可以通过如下方式启动：
 
 ```java
 java -jar sentinel-dashboard-1.8.8.jar
 ```
 
-这个也是一个 SpringBoot 项目，启动完成之后，访问默认的地址：http://localhost:8080 就可以访问到下面这个页面，默认的账户密码是sentinel/sentinel
+这个也是一个 SpringBoot 项目，启动完成之后，访问默认的地址：`http://localhost:8080` 就可以访问到下面这个页面，默认的账户密码是sentinel/sentinel
 
 ![](asserts/image-20250228230502911.png)
 
