@@ -119,9 +119,9 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: '索引', link: '/04.数据库/MySQL/02-索引' },
-            { text: '日志', link: '/04.数据库/MySQL/03-日志' },
-            { text: '事务', link: '/04.数据库/MySQL/04-事务' },
-            { text: '锁', link: '/04.数据库/MySQL/05-锁' }
+            // { text: '日志', link: '/04.数据库/MySQL/03-日志' },
+            // { text: '事务', link: '/04.数据库/MySQL/04-事务' },
+            // { text: '锁', link: '/04.数据库/MySQL/05-锁' }
           ]
         }
       ],
