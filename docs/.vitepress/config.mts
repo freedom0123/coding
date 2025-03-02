@@ -60,6 +60,12 @@ export default defineConfig({
         ]
       },
       {
+        text: '消息队列',
+        items: [
+          { text: 'Kafka', link: '/09.消息队列/Kafka/01.基础术语'}
+        ]
+      },
+      {
         text: '分布式系列',
         items: [
           { text: '唯一ID', link: '/08.分布式系列/1-唯一ID'}
@@ -168,6 +174,19 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: '唯一ID', link: '/08.分布式系列/1-唯一ID' }
+          ]
+        }
+      ],
+      '/09.消息队列': [
+        {
+          text: '目录',
+          items: [
+            {
+              text: 'Kafka',
+              items: [
+                { text: '基础术语', link: '/09.消息队列/Kafka/01.基础术语' }
+              ]
+            }
           ]
         }
       ],

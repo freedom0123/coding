@@ -17,9 +17,67 @@ Sentinel 是 Alibaba 开源的一款微服务流量控制组件
 java -jar sentinel-dashboard-1.8.8.jar
 ```
 
-这个也是一个 SpringBoot 项目，启动完成之后，访问默认的地址：`http://localhost:8080` 就可以访问到下面这个页面，默认的账户密码是sentinel/sentinel
+这个也是一个 SpringBoot 项目，启动完成之后，访问默认的地址：`http://localhost:8080` 就可以访问到下面这个页面
+
+> 默认的账户密码是sentinel/sentinel
 
 ![](asserts/image-20250228230502911.png)
+
+### 1.1 原生方式
+
+首先，在 pom.xml 中引入依赖
+
+```xml
+<dependency>
+    <groupId>com.alibaba.csp</groupId>
+    <artifactId>sentinel-core</artifactId>
+    <version>1.8.8</version>
+</dependency>
+```
+
+::: code-group
+
+```java [初始化限流规则]
+/**
+* 初始化限流规则
+*/
+private static void initFlowRules(){
+    List<FlowRule> rules = new ArrayList<>();
+    FlowRule rule = new FlowRule();
+    // 需要进行限流的资源名称
+    rule.setResource("HelloWorld");
+    // 设置 QPS 的限制为 20
+    rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
+    rule.setCount(20);
+    rules.add(rule);
+    FlowRuleManager.loadRules(rules);
+}
+```
+
+```java [测试代码]
+public static void main(String[] args) {
+    initFlowRules();
+    AtomicInteger count = new AtomicInteger();
+    while (count.getAndIncrement() <= 30) {
+        // 1.5.0 版本开始可以直接利用 try-with-resources 特性
+        try (Entry entry = SphU.entry("HelloWorld")) {
+            // 被保护的逻辑
+            // 业务逻辑开始
+            System.out.println("hello world");
+            // 业务逻辑结束
+        } catch (BlockException ex) {
+            // 处理被流控的逻辑
+            System.out.println("blocked!");
+        }
+    }
+}
+```
+
+:::
+
+按照这样的测试代码，一秒最多能够打印 20 行
+
+### 1.2 集成 SpringBoot
 
 引入依赖
 

@@ -1,8 +1,12 @@
+---
+description: 介绍 AQS 基础知识及 Lock 接口
+---
+
 # AQS
 
 ## 一、前言
 
-虽然 CAS 能够提供了无锁的解决方案，但是不断地自旋会耗费大量的CPU资源，而且大部分都是无效的。为了缓解这部分，可以采用队列的方式，将这部分压力进行缓解。如果没有获取到锁，就将其放入到队列之中等待，直到获取锁为止，当获取到锁的线程执行完成之后，就从队列之中唤醒一个阻塞的线程。这块是不是和 synchronized 有点类似？
+虽然 CAS 能够提供了无锁的解决方案，但是不断地自旋会耗费大量的CPU资源，而且大部分都是无效的。为了缓解这部分，可以采用队列的方式，将这部分压力进行缓解。如果没有获取到锁，就将其放入到队列之中等待，直到获取锁为止，当获取到锁的线程执行完成之后，就从队列之中唤醒一个阻塞的线程。这块是不是和 synchronized 有点类似？synchronized 之中采用的是管程来实现的排队队列。
 
 在 JUC 包之中也提供了这样的实现，`AbstractQueuedSynchronizer`，抽象的同步器，简称为 **AQS**。
 
@@ -16,18 +20,18 @@ private transient volatile Node head;
 private transient volatile Node tail;
 ```
 
-其中 state 用来表示当前锁占用的状态，而里面的 head 和 tail 分别作为队列的头结点和尾结点。
+其中 state 用来表示当前锁占用的状态，而里面的 head 和 tail 分别作为队列的头结点和尾结点。这里我们可以大致猜想一下 AQS 的核心结构
+
+![image-20250302224716411](asserts/image-20250302224716411.png)
 
 ### 1.1 state
 
 既然 state 用来表示锁占用的状态，那么他为什么不使用 boolean 类型，而是采用 int 类型呢？
 
-因为，state 不仅仅是用来表示共享变量是否被占用，还用来表示线程占用的数量。
-
-线程获取锁的两种方式
+首先，线程获取锁，有两种方式：
 
 + 独占模式，一旦被占用，其他线程就不能被占用。
-+ 另外一种方式就是共享模式，一旦被占用，其他共享模式下的线程也能获取锁。
++ 共享模式，一旦被占用，其他共享模式下的线程也能获取锁。
 
 **<font style="color:#2F54EB;">所以这个state，不仅仅用来表示共享资源是否被占用，还用来表示线程占用的数量。</font>**
 
@@ -51,7 +55,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 
 ### 1.2 Node
 
-在 AQS 中，队列之中存放的原始其实就是 Node，其核心变量如下：
+在 AQS 中，队列之中存放的其实就是 Node，其核心变量如下：
 
 ```java
 static final class Node {
@@ -75,13 +79,18 @@ static final class Node {
     
 	// 节点的状态，对应与上面的 1，-1，-2，-3
     volatile int waitStatus;
+    
     // 指向当前节点的前驱节点
     volatile Node prev;
+    
     // 指向当前节点的后继节点
     volatile Node next;
+    
 	// 节点所对应的线程
     volatile Thread thread;
 
+    // 如果当前 Node 不是普通节点而是条件等待节点，则节点处于某个条件等待队列上
+    // 这个属性就指向了下一个条件等待节点
     Node nextWaiter;
 }
 ```
@@ -90,13 +99,19 @@ static final class Node {
 
 ## 二、核心方法
 
-在上文中，我们提到了对于锁的获取，有共享模式和独占模式，在 AQS 之中也为我们提供了对应的模版方法，并且定义了相应的钩子函数。
+对于 AQS ，他是一个抽象类，所以他的实际运用则是通过继承来实现的。而在代码设计上则使用模板设计模式，定义了获取或者释放锁的代码模板，并且在方法之中提供了相关的钩子函数，交给子类进行扩展
+
+在上文中，我们提到了对于锁的获取，有 共享模式 和 独占模式，在 AQS 之中也为我们提供了对应的模版方法，并且定义了相应的钩子函数。
+
+比如说，独占式获取的 acquire 方法，共享获取锁的 acquireShared 方法
+
+![image-20250302221317584](asserts/image-20250302221317584.png)
 
 接下来，我们讲解一下 AQS 中的独占模式下获取锁和释放锁的源码
 
 ### 2.1 acquire
 
-首先，我们看一下 acquire 方法，对于这个方法，所有的子类都不能够进行重写，这个方法用来独占式获取锁
+首先，我们看一下 acquire 方法，对于这个方法，所有的子类都不能够进行重写，这个方法用来**独占式获取锁**
 
 ```java
 public final void acquire(int arg) {
@@ -105,6 +120,8 @@ public final void acquire(int arg) {
         selfInterrupt();
 }
 ```
+
+其中 tryAcquire 方法表示尝试获取锁，如果没有成功获取到，就不会执行后续的逻辑
 
 :::code-group
 
@@ -139,6 +156,7 @@ private Node addWaiter(Node mode) {
 
 ```java [acquireQueued]
 // 当节点成功入队之后，就开始自旋抢锁，对于这个方法 只有成功获取到锁才会返回
+// 为了不浪费资源，自旋过程之中会被阻塞，直到被前驱节点唤醒
 final boolean acquireQueued(final Node node, int arg) {
     boolean failed = true;
     try {
@@ -197,6 +215,10 @@ private final boolean parkAndCheckInterrupt() {
 
 :::
 
+通过这样分析，我们能够发现，其实 head 节点就是正在执行任务的节点，此时节点的状态为 0 ，当后续有节点抢锁的时候，他首先封装为 Node 节点加入到队列之中，然后开始自旋，当然了也不是无脑的，只要将前节点的状态改为 -1，当前线程就开始阻塞了
+
+![image-20250302224823036](asserts/image-20250302224823036.png)
+
 ### 2.2 release
 
 对于锁的释放，方法相对而言比较简单，会首先尝试释放当前线程所持有的资源，
@@ -217,6 +239,7 @@ public final boolean release(int arg) {
 ::: code-group
 
 ```java [tryRelease]
+// 同样这也是需要子类去进行扩展的方法
 protected boolean tryRelease(int arg) {
 	throw new UnsupportedOperationException();
 }
@@ -245,7 +268,9 @@ private void unparkSuccessor(Node node) {
 
 ## 三、Lock 接口
 
-在`Lock`接口出现之前，Java程序是靠`synchronzied`关键字来实现锁功能的，而在Java SE5 之后，并发接口中新增加了Lock接口，提供和`synchronized`关键字相似的同步功能，只是在使用时需要显示的获取和释放锁，虽然说去少了隐式获取释放锁的便捷性，但是却拥有了锁获取和释放的可操作性以及超时获取锁等 synchronized 关键字不具备的同步特性。
+在讲解了 AQS 的核心流程之后，接下来，我们就来讲解一下具体的实现。
+
+首先，我们看一下 Lock 接口。在  `Lock`  接口出现之前，Java程序是靠  `synchronzied`  关键字来实现锁功能的，而在  Java SE5 之后，并发接口中新增加了  Lock 接口，提供和  `synchronized`  关键字相似的同步功能，只是在使用时需要显示的获取和释放锁，虽然说去少了隐式获取释放锁的便捷性，但是却拥有了锁获取和释放的可操作性以及超时获取锁等 synchronized 关键字不具备的同步特性。
 
 ![](asserts/1661169637948-55f662a5-2c69-4aa1-b9e1-5226c1e27f80.png)
 
@@ -283,3 +308,174 @@ public interface Lock {
 - 公平获取锁，表示按照线程在队列中的排队顺序，获取锁
 - 非公平获取锁，表示，无视队列的规则，直接获取锁
 
+在默认情况之下，使用的是非公平锁
+
+```java
+public ReentrantLock() {
+    sync = new NonfairSync();
+}
+
+public ReentrantLock(boolean fair) {
+    sync = fair ? new FairSync() : new NonfairSync();
+}
+```
+
+对于非公平锁，在尝试加锁的时候，会通过 CAS 来直接修改状态，只有修改不成功了才回去，进行队列进行等待
+
+::: code-group
+
+```java [lock]
+final void lock() {
+    if (compareAndSetState(0, 1))
+        setExclusiveOwnerThread(Thread.currentThread());
+    else
+        acquire(1);
+}
+```
+
+```java [tryAcquire ]
+final boolean nonfairTryAcquire(int acquires) {
+    final Thread current = Thread.currentThread();
+    int c = getState();
+    // 进入 Lock 的时候没抢到，此时如果 state = 0，也就有线程释放了，再抢一次
+    if (c == 0) {
+        if (compareAndSetState(0, acquires)) {
+            setExclusiveOwnerThread(current);
+            return true;
+        }
+    }
+    else if (current == getExclusiveOwnerThread()) {
+        int nextc = c + acquires;
+        if (nextc < 0) // overflow
+            throw new Error("Maximum lock count exceeded");
+        setState(nextc);
+        return true;
+    }
+    return false;
+}
+```
+
+:::
+
+从这里我们就能够看到，对于非公平的锁，核心就是抢，根本不会在乎同步队列中的排队节点
+
+## 四、CountDownLatch
+
+CountDownLatch 类可以设置一个计数器，然后通过 `countDown ` 方法来进行减一的操作，使用 `await` 方法等待计数器不大于 0，然后继续执行await 方法之后的语句。
+
+1. 主要有两个方法，当一个或者多个线程调用`await方法`的时候，这些线程会阻塞
+2. 其他线程调用countDown方法会将计数器减一（调用`countDown`方法的线程不会阻塞）
+3. 当计数器的值变为 0 时，因为`await方法`阻塞的线程会被唤醒，继续执行
+
+示例代码如下：
+
+```java
+public class CountDownLatchDemo {
+    /**
+     * 六个同学，陆续离开之后，班长才可以锁门
+     * */
+    public static void main(String[] args) throws InterruptedException {
+        // 创建 CountDownLatch 对象，并传入初始值
+        CountDownLatch countDownLatch = new CountDownLatch(6);
+        for(int i = 1 ;i <= 6; i++){
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName()+"号同学离开了教室");
+                countDownLatch.countDown();
+            },i+"").start();
+        }
+        countDownLatch.await();
+        System.out.println("班长锁门走人了");
+    }
+}
+```
+
+了解了基础使用之后，接下来，我们就来看一下对应的源码，CountDownLath 同样也是基于 AQS 来进行实现的
+
+![img](asserts/1661216511604-3cbc7a2e-41de-4067-bcf3-84801560d0a0.png)
+
+不过请注意，这里重写的共享锁，这里需要注意一下，对于 state 变量的操作，这也验证了，对于 State 变量不仅仅用来表示锁是否被占用，还用来表示锁占用的数量
+
+```java
+protected boolean tryReleaseShared(int releases) {
+    // Decrement count; signal when transition to zero
+    for (;;) {
+        int c = getState();
+        if (c == 0)
+            return false;
+        int nextc = c-1;
+        if (compareAndSetState(c, nextc))
+            return nextc == 0;
+    }
+}
+```
+
+## 五、CyclicBarrier
+
+CyclicBarrier ，是一个可循环利用的屏障，作用是让所有线程都等待完成之后才会继续下一步行动。作用实际上和 CountDownLatch 是一致的。
+
+不过 CyclicBarrier 是可循环利用的。
+
+`CyclicBarrier`  的构造方法第一个参数是目标障碍数，每次执行 CyclicBarrier 一次，障碍数就会加一，如果说达到了目标障碍数，才会执行`CyclicBarrier.await()`之后的语句。
+
+```java
+public class CyclicBarrierDemo {
+    public static void main(String[] args) {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(7,() -> {
+            System.out.println("召唤神龙");
+        });
+        for (int i = 1; i <= 7; i++) {
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName()+"\t"+"号龙珠被收集");
+                try {
+                    cyclicBarrier.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+            },String.valueOf(i)).start();
+        }
+    }
+}
+```
+
+![](asserts/1655447853347-3c2fe3a1-2552-4fdb-8c90-578282196c07.png)
+
+`CountDownLatch` 的计数器可以只能使用一次，而`CyclicBarrier `的计数器可以使用`reset()`方法重置。
+
+而在具体的实现上，CountDownLatch 是基于 AQS 的 共享模式实现的，而 CyclicBarrier 是通过 Condition 来实现的
+
+## 六、Semaphore
+
+信号量，用来控制同时访问特定资源的线程数量，他可以协调各个线程，以保证合理的使用公共资源。
+
+![img](asserts/1646744154695-5fdb498f-afa9-4856-bf55-75680b0473d3.png)
+
+```java
+/**
+ * 六辆汽车 ，停三个停车位
+ * */
+public class SemaphoreDemo {
+    public static void main(String[] args) {
+        // 创建Semaphore，设置许可的数量
+        Semaphore semaphore = new Semaphore(3);
+        for (int i = 1; i <= 6; i++){
+            new Thread(()->{
+                // 抢占车位
+                try {
+                    semaphore.acquire();
+                    System.out.println(Thread.currentThread().getName()+"抢到了车位");
+                    // 设置停车时间
+                    TimeUnit.SECONDS.sleep(new Random().nextInt(5));
+                    System.out.println(Thread.currentThread().getName()+"停车时间已经到了，离开了车位");
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    semaphore.release();
+                }
+            },i+"").start();
+        }
+    }
+}
+```
