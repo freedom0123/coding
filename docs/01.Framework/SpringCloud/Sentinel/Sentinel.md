@@ -11,7 +11,7 @@ tag: SpringCloud
 
 Sentinel 是 Alibaba 开源的一款微服务流量控制组件
 
-我们通过 [GitHub](https://github.com/alibaba/Sentinel/releases) 下载对应的 Jar 包，我这里下载的版本是 1.8.8，下载完成之后，可以通过如下方式启动：
+我们通过 https://github.com/alibaba/Sentinel/releases下载对应的 Jar 包，我这里下载的版本是 1.8.8，下载完成之后，可以通过如下方式启动：
 
 ```java
 java -jar sentinel-dashboard-1.8.8.jar
