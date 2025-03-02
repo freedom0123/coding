@@ -19,7 +19,7 @@ java -jar sentinel-dashboard-1.8.8.jar
 
 这个也是一个 SpringBoot 项目，启动完成之后，访问默认的地址：http://localhost:8080 就可以访问到下面这个页面，默认的账户密码是sentinel/sentinel
 
-![image-20250228230502911](asserts/image-20250228230502911.png)
+![](asserts/image-20250228230502911.png)
 
 引入依赖
 
@@ -42,7 +42,7 @@ spring:
 
 在引入配置文件之后，就可以在控制台看到对应的服务列表
 
-![image-20250228232400622](asserts/image-20250228232400622.png)
+![](asserts/image-20250228232400622.png)
 
 至此，我们就集成了 Sentinel。但是项目启动之后，并没有去连接 Sentinel，在控制台并不能够看到项目信息，这主要是因为 Sentinel 是懒加载机制，只有访问过一次的资源才能够被监控，可以通过修改如下配置：
 
@@ -63,7 +63,7 @@ spring:
 
 下面这个页面就是配置流量控制的页面
 
-![image-20250301173209324](asserts/image-20250301173209324.png)
+![](asserts/image-20250301173209324.png)
 
 ### 2.1 流控模式
 
@@ -88,17 +88,17 @@ public String test() {
 
 配置示例如下：
 
-![image-20250301184840754](asserts/image-20250301184840754.png)
+![](asserts/image-20250301184840754.png)
 
 通过 JMeter 进行实际的压测，对应的配置如下：
 
 > 含义：1秒内有10个线程发送请求，总共发送一次
 
-![image-20250301185812441](asserts/image-20250301185812441.png)
+![](asserts/image-20250301185812441.png)
 
 通过查看结果，确实只有两个请求通过了
 
-![image-20250301185930554](asserts/image-20250301185930554.png)
+![](asserts/image-20250301185930554.png)
 
 #### 2.1.2 关联
 
@@ -120,21 +120,21 @@ public String test1() {
 
 对应的配置规则如下：
 
-![image-20250301190708322](asserts/image-20250301190708322.png)
+![](asserts/image-20250301190708322.png)
 
 这表示，当 test1 达到配置的 QPS = 2 的时候，对 test 资源进行限流
 
 当我们对于 test1 配置如下的压测线程时，此时再次发送 test 的请求，一个请求都不会进入
 
-![image-20250301191248701](asserts/image-20250301191248701.png)
+![](asserts/image-20250301191248701.png)
 
 对于 test 请求的线程池配置如下：
 
-![image-20250301191825598](asserts/image-20250301191825598.png)
+![](asserts/image-20250301191825598.png)
 
 此时查看，test 请求并没有成功的，对应的聚合报告如下：
 
-![image-20250301191902385](asserts/image-20250301191902385.png)
+![](asserts/image-20250301191902385.png)
 
 #### 2.1.3 链路
 
@@ -169,7 +169,7 @@ public class UserServiceImpl implements UserService {
 
 :::
 
-![image-20250301183111543](asserts/image-20250301183111543.png)
+![](asserts/image-20250301183111543.png)
 
 ### 2.2 流控效果
 
@@ -201,17 +201,17 @@ public class UserServiceImpl implements UserService {
 
 慢调用，业务的响应时间大于最大 RT，认定为慢请求。如果在统计的时间窗口之中，请求数量超过设定的最小数量，慢调用的比例大于设定的阈值，则触发熔断。
 
-![image-20250301232415520](asserts/image-20250301232415520.png)
+![](asserts/image-20250301232415520.png)
 
 ### 3.2 异常比例
 
 异常比例，如果在统计的时间窗口之中，请求数量大于最小请求数，并且出现异常的比例大于设定的比例阈值，则触发熔断
 
-![image-20250301233332186](asserts/image-20250301233332186.png)
+![](asserts/image-20250301233332186.png)
 
 ### 3.3 异常数
 
 异常比例，如果在统计的时间窗口之中，请求数量大于最小请求数，并且出现异常的数量大于设定的数量，则触发熔断。
 
-![image-20250301233507160](asserts/image-20250301233507160.png)
+![](asserts/image-20250301233507160.png)
 
