@@ -29,6 +29,26 @@ const blogTheme = getThemeConfig({
 
   // 文章默认作者
   author: '城南花已开',
+
+  oml2d: {
+    mobileDisplay: true,
+    models: [
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
+      }
+    ]
+  },
+  comment: {
+    type: 'giscus',
+    options: {
+      repo: 'freedom0123/coding',
+      repoId: 'R_kgDONdkf8A',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDONdkf8M4Cng56',
+      inputPosition: 'top'
+    },
+    mobileMinify: true
+  }
 })
 
 export { blogTheme }

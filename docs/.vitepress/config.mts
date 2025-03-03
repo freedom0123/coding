@@ -155,6 +155,7 @@ export default defineConfig({
             { text: 'ThreadLocal', link: '/06.JUC/2-ThreadLocal' },
             { text: 'CAS', link: '/06.JUC/3-CAS' },
             { text: 'AQS', link: '/06.JUC/4-AQS' },
+            { text: 'ForkJoin', link: '/06.JUC/5-ForkJoin' },
             { text: 'CompletableFuture', link: '/06.JUC/CompletableFuture' },
             { text: '线程池', link: '/06.JUC/线程池' },
           ]

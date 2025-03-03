@@ -31,6 +31,13 @@ html[theme],html[theme].dark {
 :root {
   --vp-layout-max-width: 1550px;
 }
+.VPDoc {
+  background-image: linear-gradient(90deg, rgba(159, 219, 252, .15) 3%, transparent 0), linear-gradient(1turn, rgba(159, 219, 252, .15) 3%, transparent 0);
+  background-size: 20px 20px;
+}
+.VPSidebar {
+  background-color: #fafafa;
+}
 .VPDoc.has-aside .content-container {
   max-width: 850px;
 }
