@@ -143,7 +143,8 @@ export default defineConfig({
         {
           text: '目录',
           items: [
-            { text: '状态设计模式', link: '/05.设计模式/状态模式' }
+            { text: '状态设计模式', link: '/05.设计模式/状态模式' },
+            { text: '适配器设计模式', link: '/05.设计模式/适配器模式' }
           ]
         }
       ],
@@ -156,8 +157,8 @@ export default defineConfig({
             { text: 'CAS', link: '/06.JUC/3-CAS' },
             { text: 'AQS', link: '/06.JUC/4-AQS' },
             { text: 'ForkJoin', link: '/06.JUC/5-ForkJoin' },
-            { text: 'CompletableFuture', link: '/06.JUC/CompletableFuture' },
-            { text: '线程池', link: '/06.JUC/线程池' },
+            { text: 'CompletableFuture', link: '/06.JUC/6-CompletableFuture' },
+            { text: '线程池', link: '/06.JUC/7-线程池' },
           ]
         }
       ],
