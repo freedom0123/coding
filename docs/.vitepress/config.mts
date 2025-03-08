@@ -54,10 +54,7 @@ export default defineConfig({
       },
       {
         text: '数据库',
-        items: [
-          { text: 'MySQL', link: '/04.数据库/MySQL/02-索引'},
-          { text: 'Redis', link: '/04.数据库/Redis/3-架构演进'}
-        ]
+        link: '/04.数据库/MySQL/1-索引'
       },
       {
         text: '消息队列',
@@ -72,7 +69,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '日常开发',
+        text: '日常学习',
         link: '/999.日常开发/1-Maven'
       }
     ],
@@ -120,22 +117,24 @@ export default defineConfig({
           ]
         }
       ],
-      '/04.数据库/MySQL/': [
+      '/04.数据库': [
         {
-          text: '目录',
           items: [
-            { text: '索引', link: '/04.数据库/MySQL/02-索引' },
-            // { text: '日志', link: '/04.数据库/MySQL/03-日志' },
-            // { text: '事务', link: '/04.数据库/MySQL/04-事务' },
-            // { text: '锁', link: '/04.数据库/MySQL/05-锁' }
-          ]
-        }
-      ],
-      '/04.数据库/Redis/': [
-        {
-          text: '目录',
-          items: [
-            { text: '架构演进', link: '/04.数据库/Redis/3-架构演进' }
+            {
+              text: 'MySQL',
+              items: [
+                { text: '索引', link: '/04.数据库/MySQL/1-索引' },
+                { text: '日志', link: '/04.数据库/MySQL/2-日志' },
+                { text: '事务', link: '/04.数据库/MySQL/3-事务' }
+              ]
+            },
+            {
+              text: 'Redis',
+              items: [
+                { text: '数据结构', link: '/04.数据库/Redis/1-数据结构' },
+                { text: '架构演进', link: '/04.数据库/Redis/3-架构演进' }
+              ]
+            }
           ]
         }
       ],
@@ -181,7 +180,6 @@ export default defineConfig({
       ],
       '/09.消息队列': [
         {
-          text: '目录',
           items: [
             {
               text: 'Kafka',
