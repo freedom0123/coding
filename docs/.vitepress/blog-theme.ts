@@ -4,12 +4,6 @@ import { getThemeConfig } from '@sugarat/theme/node'
 
 // 所有配置项，详见文档: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({
-
-  // recommend: {
-  //   style: 'sidebar',
-  //   sort: 'filename',
-  //   title: '目录'
-  // },
   recommend: false,
   tabs: true,
   mermaid: true,

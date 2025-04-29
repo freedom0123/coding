@@ -196,7 +196,15 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: 'Maven', link: '/999.日常开发/1-Maven' },
-            { text: '时间传参',link: '/999.日常开发/2-时间传参' }
+            { text: '时间传参',link: '/999.日常开发/2-时间传参' },
+            {
+              text: '工具封装',
+              items: [
+                {
+                  text: 'H2', link: '/999.日常开发/工具集成/集成H2'
+                }
+              ]
+            }
           ]
         }
       ],
