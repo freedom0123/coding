@@ -70,7 +70,7 @@ export default defineConfig({
       },
       {
         text: '日常学习',
-        link: '/999.日常开发/1-Maven'
+        link: '/999.日常开发/日常开发篇/1-Maven'
       }
     ],
     sidebar: {
@@ -195,16 +195,28 @@ export default defineConfig({
         {
           text: '目录',
           items: [
-            { text: 'Maven', link: '/999.日常开发/1-Maven' },
-            { text: '时间传参',link: '/999.日常开发/2-时间传参' },
             {
-              text: '工具封装',
+              text: '日常开发',
               items: [
-                {
-                  text: 'H2', link: '/999.日常开发/工具集成/集成H2'
-                }
+                { text: 'Maven', link: '/999.日常开发/日常开发篇/1-Maven' },
+                { text: '时间传参',link: '/999.日常开发/日常开发篇/2-时间传参' }
               ]
-            }
+
+            },
+            {
+              text: '缓存篇',
+              items: [
+                  { text: "Redis缓存", link: '/999.日常开发/缓存篇/Redis缓存'},
+                  { text: "本地缓存", link: '/999.日常开发/缓存篇/本地缓存'},
+              ]
+            },
+            {
+              text: "工具集成篇",
+              items: [
+                { text: 'H2', link: '/999.日常开发/工具集成篇/集成H2' },
+              ]
+            },
+
           ]
         }
       ],
