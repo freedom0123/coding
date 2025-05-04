@@ -1,5 +1,6 @@
 ---
 description: Redis 缓存
+date: 2025-05-04
 ---
 
 # Redis 缓存

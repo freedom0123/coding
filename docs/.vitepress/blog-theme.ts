@@ -17,6 +17,13 @@ const blogTheme = getThemeConfig({
     message: 'Released under the MIT License.',
     copyright: 'Copyright © 2019-present Evan You'
   },
+  home: {
+    analysis: {
+      articles: {
+        title: ['博客文章']
+      }
+    }
+  },
 
   // 主题色修改
   themeColor: 'vp-default',

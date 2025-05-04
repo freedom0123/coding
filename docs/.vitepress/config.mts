@@ -12,7 +12,7 @@ export default defineConfig({
   // base,
   lang: 'zh-cn',
   title: '城南花已开',
-  description: '粥里有勺糖的博客主题，基于 vitepress 实现',
+  description: '',
   lastUpdated: false,
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
@@ -197,6 +197,7 @@ export default defineConfig({
           items: [
             {
               text: '日常开发',
+              collapsed: true,
               items: [
                 { text: 'Maven', link: '/999.日常开发/日常开发篇/1-Maven' },
                 { text: '时间传参',link: '/999.日常开发/日常开发篇/2-时间传参' }
@@ -205,6 +206,7 @@ export default defineConfig({
             },
             {
               text: '缓存篇',
+              collapsed: true,
               items: [
                   { text: "Redis缓存", link: '/999.日常开发/缓存篇/Redis缓存'},
                   { text: "本地缓存", link: '/999.日常开发/缓存篇/本地缓存'},
@@ -212,6 +214,7 @@ export default defineConfig({
             },
             {
               text: "工具集成篇",
+              collapsed: true,
               items: [
                 { text: 'H2', link: '/999.日常开发/工具集成篇/集成H2' },
               ]
