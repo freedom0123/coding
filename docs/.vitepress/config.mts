@@ -57,7 +57,7 @@ export default defineConfig({
         link: '/04.数据库/MySQL/1-索引'
       },
       {
-        text: '消息队列',
+        text: '中间件',
         items: [
           { text: 'Kafka', link: '/09.消息队列/Kafka/01.基础术语'}
         ]
@@ -185,7 +185,8 @@ export default defineConfig({
             {
               text: 'Kafka',
               items: [
-                { text: '基础术语', link: '/09.消息队列/Kafka/01.基础术语' }
+                { text: '基础术语', link: '/09.消息队列/Kafka/01.基础术语' },
+                { text: '环境搭建', link: '/09.消息队列/Kafka/02.环境搭建' }
               ]
             }
           ]
@@ -208,6 +209,7 @@ export default defineConfig({
               text: '缓存篇',
               collapsed: true,
               items: [
+                  { text: "前言", link: '/999.日常开发/缓存篇/前言'},
                   { text: "Redis缓存", link: '/999.日常开发/缓存篇/Redis缓存'},
                   { text: "本地缓存", link: '/999.日常开发/缓存篇/本地缓存'},
               ]

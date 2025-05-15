@@ -41,7 +41,6 @@
   line-height: 40px;
 }
 body {
-  font-family: serif;
   font-weight: 400;
   font-size: 16px
 }
@@ -61,4 +60,11 @@ body {
 }
 .items {
   margin-left: 10px;
+}
+.caret {
+  display: none !important;
+}
+.vp-doc [class*='language-'] pre {
+  background: #ffffff;
+  padding-left: 5px;
 }
