@@ -4,3 +4,4 @@ cache
 .idea
 .temp
 .DS_Store
+/docs/.vitepress/dist.zip
