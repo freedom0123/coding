@@ -13,4 +13,12 @@ blog:
  # 设置 inspiringTimeout 可以实现自动切换
  inspiringTimeout: 3000
  pageSize: 0
+features:
+  - title: 沉淀
+  - title: 成长 
+  - title: 分享
 ---
+
+###### 个人简介
+
+若想捉大鱼，就得潜入深渊。深渊里的鱼更有力，也更纯净。硕大而抽象，且非常美丽

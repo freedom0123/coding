@@ -18,9 +18,10 @@ const blogTheme = getThemeConfig({
     copyright: 'Copyright © 2019-present Evan You'
   },
   home: {
+    avatarMode: 'card',
     analysis: {
       articles: {
-        title: ['博客文章']
+        title: ['']
       }
     }
   },

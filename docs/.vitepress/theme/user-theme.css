@@ -49,3 +49,9 @@ html[theme],html[theme].dark {
 .aside-container {
   width: 300px !important;
 }
+.content-wrapper {
+  display: none !important;
+}
+.VPFeature {
+  background-color: rgba(240, 254, 255, 0.89) !important;
+}
