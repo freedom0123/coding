@@ -213,7 +213,8 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: 'Maven', link: '/日常开发/日常开发篇/1-Maven' },
-                { text: '时间传参',link: '/日常开发/日常开发篇/2-时间传参' }
+                { text: '时间传参',link: '/日常开发/日常开发篇/2-时间传参' },
+                { text: '前端',link: '/前端/Vue/Table' },
               ]
 
             },
