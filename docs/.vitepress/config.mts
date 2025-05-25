@@ -65,7 +65,8 @@ export default defineConfig({
       {
         text: '分布式系列',
         items: [
-          { text: '唯一ID', link: '/5-分布式系列/1-唯一ID'}
+          { text: '唯一ID', link: '/5-分布式系列/1-唯一ID'},
+          { text: 'Netty', link: '/5-分布式系列/Netty/NIO/传统网络开发'}
         ]
       },
       {
@@ -188,6 +189,19 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: '唯一ID', link: '/5-分布式系列/1-唯一ID' }
+          ]
+        }
+      ],
+      '/5-分布式系列/Netty': [
+        {
+          text: '目录',
+          items: [
+            {
+              text: 'NIO',
+              items: [
+                { text: '传统网络开发', link: '/5-分布式系列/Netty/NIO/传统网络开发' }
+              ]
+            }
           ]
         }
       ],
