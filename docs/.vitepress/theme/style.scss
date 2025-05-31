@@ -64,6 +64,26 @@ body {
 .caret {
   display: none !important;
 }
+.plugin-tabs--content {
+  background-color: #fafafa;
+}
+.vp-doc div[class*='language-'].line-numbers-mode {
+  background-color: #ecf4fa;
+}
 .vp-doc [class*='language-'] pre {
   padding-left: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.plugin-tabs--content table {
+  width: 100%;
+}
+table {
+  width: 100%;    /* 表格撑满容器 */
+  table-layout: fixed; /* 固定布局算法 */
+  border-collapse: collapse; /* 合并边框 */
+  word-wrap: break-word; /* 允许单词换行 */
+}
+
+th, td {
+  width: 1%; /* 浏览器自动计算 */
 }

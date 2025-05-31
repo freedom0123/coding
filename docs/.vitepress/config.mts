@@ -20,6 +20,9 @@ export default defineConfig({
     // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     // 展示 2,3 级标题在目录中
     outline: {
@@ -67,6 +70,12 @@ export default defineConfig({
         items: [
           { text: '唯一ID', link: '/5-分布式系列/1-唯一ID'},
           { text: 'Netty', link: '/5-分布式系列/Netty/NIO/传统网络开发'}
+        ]
+      },
+      {
+        text: '部署',
+        items: [
+          { text: 'Linux', link: '/4-部署/Linux/Shell脚本'}
         ]
       },
       {
