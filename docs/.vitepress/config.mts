@@ -52,6 +52,7 @@ export default defineConfig({
         items: [
           { text: 'Dubbo', link: '/2-Framework/Dubbo/1-概述'},
           { text: 'Spring', link: '/2-Framework/Spring/11-事务源码分析'},
+          { text: 'SpringBoot', link: '/2-Framework/SpringBoot/启动流程'},
           { text: 'SpringCloud', link: '/2-Framework/SpringCloud/Sentinel/Sentinel'},
         ]
       },
@@ -143,6 +144,14 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: '事务源码分析', link: '/2-Framework/Spring/11-事务源码分析' }
+          ]
+        }
+      ],
+      '/2-Framework/SpringBoot/': [
+        {
+          text: '目录',
+          items: [
+            { text: '启动流程', link: '/2-Framework/SpringBoot/启动流程' }
           ]
         }
       ],
