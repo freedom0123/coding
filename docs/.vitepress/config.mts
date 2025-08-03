@@ -98,7 +98,8 @@ export default defineConfig({
           text: '目录',
           items: [
             { text: '状态设计模式', link: '/1-基础/设计模式/状态模式' },
-            { text: '适配器设计模式', link: '/1-基础/设计模式/适配器模式' }
+            { text: '适配器设计模式', link: '/1-基础/设计模式/适配器模式' },
+            { text: '观察者设计模式', link: '/1-基础/设计模式/观察者模式' },
           ]
         }
       ],
@@ -245,8 +246,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: 'Maven', link: '/日常开发/日常开发篇/1-Maven' },
-                { text: '时间传参',link: '/日常开发/日常开发篇/2-时间传参' },
-                { text: '前端',link: '/前端/Vue/Table' },
+                { text: '时间传参',link: '/日常开发/日常开发篇/2-时间传参' }
               ]
 
             },
