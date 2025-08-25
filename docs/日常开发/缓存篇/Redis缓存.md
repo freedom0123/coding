@@ -7,7 +7,7 @@ date: 2025-05-04
 
 ## 一、配置 Redis
 
-首先，我们基于搭建 SpringBoot 和 Redis 的集成环境。这里使用 Redission 作为操作 Redis 的客户端
+首先，我们搭建 SpringBoot 和 Redis 的集成环境。这里使用 Redission 作为操作 Redis 的客户端
 
 ::: code-group
 
@@ -67,7 +67,7 @@ public static RedisSerializer<?> buildRedisSerializer() {
     om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
     om.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
-    //解决redis对java8时间类型LocalDateTime， LocalTime等序列号反序列化异常的问题
+    // 解决 redis 对 java8 时间类型 LocalDateTime， LocalTime 等序列号反序列化异常的问题
     om.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     om.registerModule(new JavaTimeModule());
     json.setObjectMapper(om);
