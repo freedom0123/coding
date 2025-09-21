@@ -4,10 +4,6 @@
 /* 浅色模式使用的变量 */
 html[theme] {
   --vp-c-user-1: #008cff;
-
-
-
-
   --vp-c-user-2: #a100ff;
   --vp-c-user-3:green;
   --vp-c-user-soft: rgba(123, 0, 255, 0.16);
@@ -29,7 +25,7 @@ html[theme],html[theme].dark {
   --vp-c-brand-soft: var(--vp-c-user-soft);
 }
 :root {
-  --vp-layout-max-width: 1650px;
+  --vp-layout-max-width: 1750px;
 }
 .VPDoc {
   background-image: linear-gradient(90deg, rgba(159, 219, 252, .15) 3%, transparent 0), linear-gradient(1turn, rgba(159, 219, 252, .15) 3%, transparent 0);
@@ -39,7 +35,7 @@ html[theme],html[theme].dark {
   background-color: #fafafa;
 }
 .VPDoc.has-aside .content-container {
-  max-width: 850px;
+  max-width: 100% !important;
 }
 .el-image-viewer__img {
   transform: scale(1) rotate(0deg) translate(0px, 0px);
@@ -54,4 +50,13 @@ html[theme],html[theme].dark {
 }
 .VPFeature {
   background-color: #ffffff !important;
+}
+
+.VPSidebar {
+    padding-left: 20px !important;
+    width: 200px !important;
+}
+.VPNavBar.has-sidebar .title {
+    padding-left: 20px !important;
+    width: 150px !important;
 }
