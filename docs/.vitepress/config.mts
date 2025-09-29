@@ -263,6 +263,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: 'H2', link: '/日常开发/工具集成篇/集成H2' },
+                { text: 'Knife4j', link: '/日常开发/工具集成篇/集成Knife4j' },
               ]
             }
           ]
