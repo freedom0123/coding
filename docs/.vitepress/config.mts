@@ -63,7 +63,7 @@ export default defineConfig({
       {
         text: '中间件',
         items: [
-          { text: 'Kafka', link: '/7-消息队列/Kafka/01.基础术语'}
+          { text: '消息队列', link: '/7-消息队列/Kafka/01.基础术语'}
         ]
       },
       {
@@ -231,9 +231,15 @@ export default defineConfig({
               text: 'Kafka',
               items: [
                 { text: '基础术语', link: '/7-消息队列/Kafka/01.基础术语' },
-                { text: '环境搭建', link: '/7-消息队列/Kafka/02.环境搭建' }
+                { text: '环境搭建', link: '/7-消息队列/RocketMQ/02.环境搭建' }
               ]
-            }
+            },
+              {
+                  text: 'RocketMQ',
+                  items: [
+                      { text: '消息类型', link: '/7-消息队列/RocketMQ/消息类型' },
+                  ]
+              }
           ]
         }
       ],
