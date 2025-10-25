@@ -85,7 +85,7 @@ export default defineConfig({
       }
     ],
     sidebar: {
-      '/1-基础/JVM': [
+      '1-基础/JVM': [
         {
           text: '目录',
           items: [
@@ -276,11 +276,6 @@ export default defineConfig({
         }
       ],
     },
-    socialLinks: [
-      {
-        icon: 'github',
-        link: 'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme'
-      }
-    ]
+    socialLinks: []
   }
 })
