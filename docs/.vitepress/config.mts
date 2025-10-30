@@ -237,6 +237,7 @@ export default defineConfig({
               {
                   text: 'RocketMQ',
                   items: [
+                      { text: '常用术语', link: '/7-消息队列/RocketMQ/常用术语' },
                       { text: '消息类型', link: '/7-消息队列/RocketMQ/消息类型' },
                       { text: '消费者特性', link: '/7-消息队列/RocketMQ/消费者特性' },
                   ]
