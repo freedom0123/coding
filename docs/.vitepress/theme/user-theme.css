@@ -28,7 +28,7 @@ html[theme],html[theme].dark {
   --vp-layout-max-width: 100%;
 }
 .VPDoc {
-  background-image: linear-gradient(90deg, rgba(159, 219, 252, .15) 3%, transparent 0), linear-gradient(1turn, rgba(159, 219, 252, .15) 3%, transparent 0);
+ /* background-image: linear-gradient(90deg, rgba(159, 219, 252, .15) 3%, transparent 0), linear-gradient(1turn, rgba(159, 219, 252, .15) 3%, transparent 0);*/
   background-size: 20px 20px;
 }
 .VPSidebar {
@@ -50,13 +50,4 @@ html[theme],html[theme].dark {
 }
 .VPFeature {
   background-color: #ffffff !important;
-}
-
-.VPSidebar {
-    padding-left: 20px !important;
-    width: 12% !important;
-}
-.VPNavBar.has-sidebar .title {
-    padding-left: 20px !important;
-    width: 20% !important;
 }
