@@ -82,9 +82,9 @@ export default defineConfig({
             {
                 text: '其余',
                 items: [
-                    {text: '日常开发篇', link: '/杂类/日常开发篇/Maven'},
-                    {text: '算法', link: '/杂类/算法/LeetCode'},
-                    {text: '缓存篇', link: '/杂类/缓存篇/本地缓存'},
+                    {text: '日常开发篇', link: '/8-归档/日常开发篇/Maven'},
+                    {text: '算法', link: '/8-归档/算法/LeetCode'},
+                    {text: '缓存篇', link: '/8-归档/缓存篇/本地缓存'},
                 ]
             }
         ],
@@ -250,29 +250,29 @@ export default defineConfig({
                     ]
                 }
             ],
-            '/杂类/缓存篇': [
+            '/8-归档/缓存篇': [
                 {
                     text: '目录',
                     items: [
-                        {text: "Redis缓存", link: '/杂类/缓存篇/Redis缓存'},
-                        {text: "本地缓存", link: '/杂类/缓存篇/本地缓存'},
+                        {text: "Redis缓存", link: '/8-归档/缓存篇/Redis缓存'},
+                        {text: "本地缓存", link: '/8-归档/缓存篇/本地缓存'},
                     ]
                 }
             ],
-            '/杂类/日常开发篇': [
+            '/8-归档/日常开发篇': [
                 {
                     text: '目录',
                     items: [
-                        {text: 'Maven', link: '/杂类/日常开发篇/Maven'},
-                        {text: '时间传参', link: '/杂类/日常开发篇/时间传参'}
+                        {text: 'Maven', link: '/8-归档/日常开发篇/Maven'},
+                        {text: '时间传参', link: '/8-归档/日常开发篇/时间传参'}
                     ]
                 }
             ],
-            '/杂类/算法': [
+            '/8-归档/算法': [
                 {
                     text: '目录',
                     items: [
-                        {text: 'LeetCode Hot100', link: '/杂类/算法/LeetCode'}
+                        {text: 'LeetCode Hot100', link: '/8-归档/算法/LeetCode'}
                     ]
                 }
             ]
