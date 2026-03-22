@@ -51,3 +51,23 @@ html[theme],html[theme].dark {
 .VPFeature {
   background-color: #ffffff !important;
 }
+/* 格子背景效果 */
+.VPDoc {
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px; /* 控制格子大小 */
+    background-position: center center;
+}
+
+/* 移除自定义块的格子背景 */
+.vp-doc .custom-block {
+    background-image: none !important;
+    background-color: #f6f8fa !important; /* 可以根据需要调整背景色 */
+}
+
+/* 针对 info 类型的自定义块 */
+.vp-doc .custom-block.info {
+    background-image: none !important;
+    background-color: #f0f7ff !important; /* 浅蓝色背景，与 info 类型匹配 */
+}
