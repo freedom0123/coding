@@ -108,6 +108,45 @@ class Solution {
 }
 ```
 
+## 滑动窗口
+
+### 3. 无重复字符的最长子串
+
+给定一个字符串 `s` ，请你找出其中不含有重复字符的 **最长 子串** 的长度。
+
+**示例 1:**
+
+```
+输入: s = "abcabcbb"
+输出: 3 
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。注意 "bca" 和 "cab" 也是正确答案。
+```
+
+滑动窗口，用两个指针维护窗口，Map 用来判断是否出现过字符以及存储每个字符最近一次出现的位置。
+
+R 指针不断向右移动，当窗口之中出现过重复字符，就需要考虑移动 L 指针的位置，此时重复元素是 R 指针指向的元素， Map 之中存储的是 R 指针当前指向的元素上一次位置 index。此时只需要 L = index + 1即可，**不过请注意，L 指针只能够右移，不能够左移**，如果左移，就会导致滑动窗口之中可能存在重复的字符串。
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        char[] arr = s.toCharArray();
+        int l = 0;
+        int res = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for(int r = 0; r < n; r++) {
+            int index = map.getOrDefault(arr[r], -1);
+            if(index != -1) {
+                l = Math.max(l, index + 1);
+            }
+            res = Math.max(res, r - l + 1);
+            map.put(arr[r], r);
+        }        
+        return res;
+    }
+}
+```
+
 
 
 
