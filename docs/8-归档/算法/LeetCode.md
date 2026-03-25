@@ -208,3 +208,44 @@ class Solution {
 }
 ```
 
+## 子串
+
+### 560. 和为 K 的子数组
+
+给你一个整数数组 `nums` 和一个整数 `k` ，请你统计并返回 *该数组中和为 `k` 的子数组的个数* 。
+
+子数组是数组中元素的连续非空序列。
+
+**示例 1：**
+
+```
+输入：nums = [1,1,1], k = 2
+输出：2
+```
+
+前缀和
+
+![image-20260325224557838](asserts/image-20260325224557838.png)
+
+```java
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int n = nums.length;
+        int[] sum = new int[n + 10];
+        sum[1] = nums[0];
+        for(int i = 2; i <= n; i++) {
+            sum[i] = sum[i - 1] + nums[i - 1];
+        }
+        int res = 0;
+        for(int i = 1; i <= n; i++) {
+            for(int j = i - 1; j >= 0; j--) {
+                if(sum[i] - sum[j] == k) {
+                    ++res;
+                }
+            }
+        }
+        return res;   
+    }
+}
+```
+
