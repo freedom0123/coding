@@ -225,15 +225,14 @@ class Solution {
 
 前缀和
 
-![image-20260325224557838](asserts/image-20260325224557838.png)
+![image-20260325225026747](asserts/image-20260325225026747.png)
 
 ```java
 class Solution {
     public int subarraySum(int[] nums, int k) {
         int n = nums.length;
         int[] sum = new int[n + 10];
-        sum[1] = nums[0];
-        for(int i = 2; i <= n; i++) {
+        for(int i = 1; i <= n; i++) {
             sum[i] = sum[i - 1] + nums[i - 1];
         }
         int res = 0;
