@@ -22,4 +22,22 @@ features:
   - title: 成长
     details: 记录日常工作之中遇到的问题和常用的解决方案
 ---
-## 不会Coding
+<div class="home-intro">
+  <div class="home-intro__avatar">
+    <img src="/logo.png" alt="avatar" />
+  </div>
+  <div class="home-intro__main">
+    <div class="home-intro__title">不会Coding</div>
+    <div class="home-intro__subtitle">Java 后端开发｜源码分析｜工程化实践</div>
+    <div class="home-intro__desc">
+      这里记录日常开发中的踩坑、方案沉淀与成长笔记。希望内容对你有帮助，也欢迎交流。
+    </div>
+    <div class="home-intro__tags">
+      <span class="home-tag">Java</span>
+      <span class="home-tag">Spring</span>
+      <span class="home-tag">MySQL</span>
+      <span class="home-tag">Redis</span>
+      <span class="home-tag">分布式</span>
+    </div>
+  </div>
+</div>
