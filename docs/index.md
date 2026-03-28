@@ -24,7 +24,7 @@ features:
 ---
 <div class="home-intro">
   <div class="home-intro__avatar">
-    <img src="/logo.png" alt="avatar" />
+    <img src="/self.png" alt="avatar" />
   </div>
   <div class="home-intro__main">
     <div class="home-intro__title">不会Coding</div>
