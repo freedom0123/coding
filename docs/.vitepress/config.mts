@@ -264,7 +264,8 @@ export default defineConfig({
                     text: '目录',
                     items: [
                         {text: 'Maven', link: '/8-归档/日常开发篇/Maven'},
-                        {text: '时间传参', link: '/8-归档/日常开发篇/时间传参'}
+                        {text: '时间传参', link: '/8-归档/日常开发篇/时间传参'},
+                        {text: '乐观锁与悲观锁', link: '/8-归档/日常开发篇/乐观锁和悲观锁'}
                     ]
                 }
             ],

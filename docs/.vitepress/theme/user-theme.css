@@ -75,7 +75,7 @@ html[theme],html[theme].dark {
 /* 优化文章字体可读性 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 15px; /* 增大字体大小 */
+    font-size: 14px; /* 增大字体大小 */
     font-weight: 350; /* 适中的字重 */
     line-height: 1.4; /* 增加行高，提高可读性 */
     color: #333333; /* 深色文字，提高对比度 */
@@ -85,8 +85,13 @@ body {
 /* 优化文章内容区域的字体 */
 /* 优化文章内容区域的字体 */
 .vp-doc p {
+    font-size: 14px; /* 增大字体大小 */
     margin: 12px 0;
     color: #333333; /* 深灰色，比纯黑柔和但足够清晰 */
+}
+.vp-doc blockquote > p {
+    font-size: 14px; /* 增大字体大小 */
+    margin: 12px 0;
 }
 .vp-doc h2 {
     color: #fff;
