@@ -94,19 +94,14 @@ body {
     margin: 12px 0;
 }
 .vp-doc h2 {
-    color: #fff;
     font-size: 1.4rem;
     line-height: 1.5;
     width: fit-content;
     font-weight: 700;
-    margin: 20px 0;
-    padding: 5px 12px;
+    padding: 5px 5px;
     border-radius: 8px;
-    background: linear-gradient(to right, #85c1e9, #3498db, #85c1e9);
     background-size: 200% auto;
     background-position: 0 center;
-    box-shadow: 0 2px 5px rgba(61, 184, 211, .15);
-    transition: background-position .5s ease-out, transform .4s ease, box-shadow .4s ease
 }
 
 .vp-doc h2:hover {
