@@ -298,3 +298,100 @@ class Solution {
 }
 ```
 
+## 二分查找
+
+二分查找的基本模板
+
+```java
+l = -1 ;
+r = N;
+int mid = l + r >> 1;
+if (isBlue(mid)) l = mid;
+else r = mid;
+
+// return l or r
+```
+
+### 35.搜索插入位置
+
+给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+
+请必须使用时间复杂度为 `O(log n)` 的算法。
+
+**示例 1:**
+
+```
+输入: nums = [1,3,5,6], target = 5
+输出: 2
+```
+
+示例代码
+
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l = -1;
+        r = len(nums)
+        while l + 1 != r :
+            mid = l + r >> 1;
+            if nums[mid] < target:
+                l = mid;
+            else:
+                r = mid;
+        return r;
+```
+
+### 34. 在排序数组中查找元素的第一个和最后一个位置
+
+给你一个按照非递减顺序排列的整数数组 `nums`，和一个目标值 `target`。请你找出给定目标值在数组中的开始位置和结束位置。
+
+如果数组中不存在目标值 `target`，返回 `[-1, -1]`。
+
+你必须设计并实现时间复杂度为 `O(log n)` 的算法解决此问题。
+
+**示例 1：**
+
+```
+输入：nums = [5,7,7,8,8,10], target = 8
+输出：[3,4]
+```
+
+示例代码
+
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        l = -1
+        r = len(nums)
+        res = [-1, -1]
+        
+        // 查找左边界
+        while l + 1 != r:
+            mid = l + r >> 1;
+            if nums[mid] < target:
+                l = mid;
+            else:
+                r = mid
+
+        if r == len(nums):
+            return res;
+
+        if nums[r] == target:
+            res[0] = r
+		
+        // 查找右边界
+        l = -1
+        r = len(nums)
+        while l + 1 != r:
+            mid = l + r >> 1
+            if nums[mid] <= target:
+                l = mid;
+            else:
+                r = mid
+        
+        if nums[l] == target:
+            res[1] = l;
+    
+        return res
+```
+
