@@ -395,3 +395,102 @@ class Solution:
         return res
 ```
 
+### 153. 寻找旋转排序数组中的最小值
+
+已知一个长度为 `n` 的数组，预先按照升序排列，经由 `1` 到 `n` 次 **旋转** 后，得到输入数组。例如，原数组 `nums = [0,1,2,4,5,6,7]` 在变化后可能得到：
+
+- 若旋转 `4` 次，则可以得到 `[4,5,6,7,0,1,2]`
+- 若旋转 `7` 次，则可以得到 `[0,1,2,4,5,6,7]`
+
+注意，数组 `[a[0], a[1], a[2], ..., a[n-1]]` **旋转一次** 的结果为数组 `[a[n-1], a[0], a[1], a[2], ..., a[n-2]]` 。
+
+给你一个元素值 **互不相同** 的数组 `nums` ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 **最小元素** 。
+
+你必须设计一个时间复杂度为 `O(log n)` 的算法解决此问题。
+
+**示例 1：**
+
+```
+输入：nums = [3,4,5,1,2]
+输出：1
+解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。
+```
+
+这里面只需要考虑 红蓝边界。对于蓝色区域，一定是 **大于等于第一个元素**。我们找的是实际上是右边界，如果右边界从始至终就没有动过，此时最小的元素就是数组的第一个元素
+
+```java
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l = -1
+        r = len(nums)
+        
+        while l + 1 != r:
+            mid = l + r >> 1
+            if nums[mid] >= nums[0]:
+                l = mid
+            else:
+                r = mid
+
+        return  nums[r] if r < len(nums) else nums[0]    
+```
+
+### 4. 寻找两个正序数组的中位数
+
+给定两个大小分别为 `m` 和 `n` 的正序（从小到大）数组 `nums1` 和 `nums2`。请你找出并返回这两个正序数组的 **中位数** 。
+
+算法的时间复杂度应该为 `O(log (m+n))` 。
+
+**示例 1：**
+
+```
+输入：nums1 = [1,3], nums2 = [2]
+输出：2.00000
+解释：合并数组 = [1,2,3] ，中位数 2
+```
+
+**示例 2：**
+
+```
+输入：nums1 = [1,2], nums2 = [3,4]
+输出：2.50000
+解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+```
+
+双指针
+
+```python
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        n = len(nums1)
+        m = len(nums2)
+
+        mid = n + m >> 1
+
+        i = 0
+        j = 0
+        res = []
+        for k in range(0, n + m):
+            if i < n and j < m:
+                if nums1[i] <= nums2[j]:
+                    res.append(nums1[i])
+                    i += 1
+                else:
+                    res.append(nums2[j])
+                    j += 1
+                continue
+            if i >= n and j < m:
+                res.append(nums2[j])
+                j += 1
+                continue
+            if j >= m and i < n:
+                res.append(nums1[i])
+                i += 1
+                continue
+        if (n + m) % 2 == 0:
+            return (res[mid] + res[mid - 1]) / 2
+        else:
+            return res[mid]
+            
+        
+```
+
