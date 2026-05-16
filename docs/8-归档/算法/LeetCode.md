@@ -341,7 +341,53 @@ class Solution:
         return r;
 ```
 
-### 34. 在排序数组中查找元素的第一个和最后一个位置
+### 73.搜索二维矩阵
+
+给你一个满足下述两条属性的 `m x n` 整数矩阵：
+
+- 每行中的整数从左到右按非严格递增顺序排列。
+- 每行的第一个整数大于前一行的最后一个整数。
+
+给你一个整数 `target` ，如果 `target` 在矩阵中，返回 `true` ；否则，返回 `false` 。
+
+**示例 1：**
+
+![img](https://assets.leetcode.com/uploads/2020/10/05/mat.jpg)
+
+```
+输入：matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+输出：true
+```
+
+对于每一行的元素都是有序的，在一个有序的列表之中判断元素是否存在，用二分是可以做到的。
+
+通过题目，能够得到，对于一个 n * m 的矩阵，能够得到，**第 i 行的最小元素，一定是大于 第 i - 1 行的最大元素**，即`arr[i][0] >arr[i - 1][m - 1]` ，并且每一行的元素都是有序的。所以，如果一个元素小于 `arr[i][n - 1]`，它就不可能出现在 i + 1 行。所以只需要遍历每一行的最后一个元素，如果说它小于最后一个元素，则对当前行做二分查找即可
+
+时间复杂度：`O(nlogn)`
+
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        n = len(matrix)
+        m = len(matrix[0])
+        for i in range(n):
+            for j in range(m - 1, -1, -1):
+                if matrix[i][j] >= target :
+                    l = -1;
+                    r = m
+                    while l + 1 != r:
+                        mid = l + r >> 1
+                        if matrix[i][mid] <= target:
+                            l = mid
+                        else:
+                            r = mid
+                    return True if l != -1 and matrix[i][l] == target else False
+                else:
+                    break
+        return False
+```
+
+### 34.在排序数组中查找元素的第一个和最后一个位置
 
 给你一个按照非递减顺序排列的整数数组 `nums`，和一个目标值 `target`。请你找出给定目标值在数组中的开始位置和结束位置。
 
@@ -395,7 +441,15 @@ class Solution:
         return res
 ```
 
-### 153. 寻找旋转排序数组中的最小值
+
+
+
+
+
+
+
+
+### 153.  寻找旋转排序数组中的最小值
 
 已知一个长度为 `n` 的数组，预先按照升序排列，经由 `1` 到 `n` 次 **旋转** 后，得到输入数组。例如，原数组 `nums = [0,1,2,4,5,6,7]` 在变化后可能得到：
 
@@ -434,7 +488,7 @@ class Solution:
         return  nums[r] if r < len(nums) else nums[0]    
 ```
 
-### 4. 寻找两个正序数组的中位数
+### 4.  寻找两个正序数组的中位数
 
 给定两个大小分别为 `m` 和 `n` 的正序（从小到大）数组 `nums1` 和 `nums2`。请你找出并返回这两个正序数组的 **中位数** 。
 
@@ -492,5 +546,28 @@ class Solution:
             return res[mid]
             
         
+```
+
+## 技巧
+
+### 136. 只出现一次的数字
+
+| 符号 | 含义 | 备注                     |
+| ---- | ---- | ------------------------ |
+| &    | 与   | 两个位都为1时，结果才为1 |
+| \|   | 或   | 有1位是1，就是1          |
+| ^    | 异或 | 两个位相同为0，相异为1   |
+| ~    | 取反 | 0变1，1变0               |
+
+- a ^ 0 = a
+- a ^ a = 0  
+
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res = 0
+        for i in nums:
+            res = res ^ i
+        return res
 ```
 
