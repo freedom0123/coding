@@ -38,7 +38,7 @@ jobs:
     # node v20 运行
     strategy:
       matrix:
-        node-version: [24]
+        node-version: [20]
 
     steps:
       # 拉取代码
