@@ -38,7 +38,7 @@ jobs:
     # node v20 运行
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [24]
 
     steps:
       # 拉取代码
@@ -65,7 +65,7 @@ jobs:
 
         # 安装依赖
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile --ignore-scripts=false esbuild watcher sharp vue-demi
+        run: pnpm install --no-frozen-lockfile
         # 锁定依赖版本
         # run: pnpm install --frozen-lockfile
 
