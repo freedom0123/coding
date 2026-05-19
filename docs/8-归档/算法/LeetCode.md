@@ -298,6 +298,39 @@ class Solution {
 }
 ```
 
+## 回溯
+
+### 46. 全排列
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+
+        res = []
+        st = [False] * len(nums)
+        path = []
+        n = len(nums)
+
+
+        def dfs(path: List[int], root: int):
+            if n == root:
+                res.append(path[:]);
+                return;
+
+            for i in range(n):
+                if st[i] == True: continue
+                st[i] = True
+                path.append(nums[i])
+                dfs(path, root + 1)
+                st[i] = False
+                path.pop()
+
+        dfs([], 0)
+        return res  
+```
+
+
+
 ## 二分查找
 
 二分查找的基本模板
